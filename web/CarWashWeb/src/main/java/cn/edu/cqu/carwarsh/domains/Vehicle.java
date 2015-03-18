@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * 用户常用车辆信息
@@ -12,6 +14,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "licenseNumber","customer_id" }) })
 public class Vehicle {
 	/**
 	 * 逻辑主键，自增长
@@ -21,9 +24,9 @@ public class Vehicle {
 	private Long id;
 	/**
 	 * 
-	 * 车牌号,物理主键,长度20位
+	 * 车牌号
 	 */
-	@Column(nullable=false,unique=true,length=20)
+	@Column(nullable=false,length=20)
 	private String licenseNumber;
 	/**
 	 * 
