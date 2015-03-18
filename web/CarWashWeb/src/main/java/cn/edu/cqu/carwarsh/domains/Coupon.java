@@ -1,18 +1,16 @@
 package cn.edu.cqu.carwarsh.domains;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 /**
- * 用户常用洗车地址
+ * 优惠券
  * @author liuji
  *
  */
 @Entity
-public class Address {
-
+public class Coupon {
 	/**
 	 * 逻辑主键，自增长
 	 */
@@ -24,12 +22,6 @@ public class Address {
 	 */
 	@ManyToOne(optional=false)
 	private Customer customer;
-	/**
-	 * 详细地址
-	 */
-	@Column(nullable=true,length=255)
-	private String detailAddress;
-	
 	//TODO 添加其他属性
 	public Long getId() {
 		return id;
@@ -43,11 +35,4 @@ public class Address {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public String getDetailAddress() {
-		return detailAddress;
-	}
-	public void setDetailAddress(String detailAddress) {
-		this.detailAddress = detailAddress;
-	}
-	
 }

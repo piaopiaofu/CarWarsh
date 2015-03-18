@@ -12,7 +12,7 @@ import cn.edu.cqu.carwarsh.services.AddressService;
 import cn.edu.cqu.carwarsh.services.CustomerService;
 import cn.edu.cqu.carwarsh.vos.JSONResult;
 /**
- * 用户常用洗车地址的基本操作，包括添加、删除、修改、查看
+ * 用户常用洗车地址服务端接口
  * @author liuji
  *
  */
@@ -22,7 +22,7 @@ public class AddressController {
 	 * 用于输出日志
 	 */
 	private static Logger logger = LoggerFactory
-			.getLogger(CustomerController.class);
+			.getLogger(AddressController.class);
 	@Autowired
 	private AddressService addressService;
 	@Autowired
