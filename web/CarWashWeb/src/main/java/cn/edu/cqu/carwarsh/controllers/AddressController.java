@@ -28,29 +28,48 @@ public class AddressController {
 	@Autowired
 	private CustomerService customerService;
 	/**
-	 * 添加洗车地址
+	 * 添加洗 车地址
 	 * @param mobile 手机号
-	 * @param address 地址
+	 * @param pwd 密码
+	 * @param address 详细地址
+	 * @param remark 备注
+	 * @param longitude 经度
+	 * @param latitute 纬度
 	 * @return
 	 */
 	@RequestMapping(value = "/address/add.do")
-	public JSONResult addAddress(String mobile,String address)
+	public JSONResult addAddress(String mobile,String pwd,String address,String remark,String longitude,String latitute)
 	{
 		JSONResult result = new JSONResult();
 		try {
 			Customer customer = customerService.findByMobile(mobile);
-			Address addr = new Address();
-			addr.setCustomer(customer);
-			addr.setDetailAddress(address);
-			addressService.add(addr);
-			result.setMsg("添加地址成功");
-			result.setState(true);
+			if(customer!=null){
+				if(customerService.isValid(mobile, pwd)){
+					Address addr = new Address();
+					addr.setCustomer(customer);
+					addr.setDetailAddress(address);
+					addr.setRemark(remark);
+					addr.setLatitude(latitute);
+					addr.setLongitude(longitude);
+					addressService.add(addr);
+					result.setMsg("添加地址成功");
+					result.setState(true);
+				}else{
+					result.setMsg("原密码错误");
+					result.setState(false);
+				}
+			}else{
+				result.setMsg("手机号错误");
+				result.setState(false);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			result.setMsg("手机号错误");
+			result.setMsg("系统发生异常，添加地址失败！");
 			result.setState(true);
 		}
 		return result;
 	}
+	
+	
 	
 }

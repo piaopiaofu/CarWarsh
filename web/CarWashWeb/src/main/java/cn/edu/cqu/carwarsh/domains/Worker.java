@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 /**
  * 洗车工
  * @author liuji
@@ -32,6 +33,10 @@ public class Worker {
 	 */
 	@Column(nullable=true,length=50)
 	private String name;
+	
+	@ManyToOne(optional=false)
+	private WarshStation warshStation;
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,6 +61,12 @@ public class Worker {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public WarshStation getWarshStation() {
+		return warshStation;
+	}
+	public void setWarshStation(WarshStation warshStation) {
+		this.warshStation = warshStation;
 	}
 	@Override
 	public int hashCode() {

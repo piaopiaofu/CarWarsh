@@ -27,10 +27,24 @@ public class Address {
 	/**
 	 * 详细地址
 	 */
-	@Column(nullable=true,length=255)
+	@Column(nullable=false,length=255)
 	private String detailAddress;
+	/**
+	 * 经度
+	 */
+	@Column(nullable=false,length=30)
+	private String latitude;
+	/**
+	 * 纬度
+	 */
+	@Column(nullable=false,length=30)
+	private String longitude;
+	/**
+	 * 备注
+	 */
+	@Column(nullable=true,length=255)
+	private String remark;
 	
-	//TODO 添加其他属性
 	public Long getId() {
 		return id;
 	}
@@ -49,5 +63,62 @@ public class Address {
 	public void setDetailAddress(String detailAddress) {
 		this.detailAddress = detailAddress;
 	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((customer == null) ? 0 : customer.hashCode());
+		result = prime * result
+				+ ((latitude == null) ? 0 : latitude.hashCode());
+		result = prime * result
+				+ ((longitude == null) ? 0 : longitude.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (customer == null) {
+			if (other.customer != null)
+				return false;
+		} else if (!customer.equals(other.customer))
+			return false;
+		if (latitude == null) {
+			if (other.latitude != null)
+				return false;
+		} else if (!latitude.equals(other.latitude))
+			return false;
+		if (longitude == null) {
+			if (other.longitude != null)
+				return false;
+		} else if (!longitude.equals(other.longitude))
+			return false;
+		return true;
+	}
+	
 	
 }

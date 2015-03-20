@@ -40,4 +40,6 @@ public class AddressService extends BaseService {
 	public void edit(Address newAddress) throws Exception{
 		this.update(newAddress);
 	}
+	
+	
 }
