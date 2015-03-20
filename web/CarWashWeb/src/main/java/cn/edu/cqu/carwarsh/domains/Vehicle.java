@@ -47,8 +47,21 @@ public class Vehicle {
 
 	
 	//TODO 添加其他属性
+	
 	public Long getId() {
 		return id;
+	}
+	public String getLicenseNumber() {
+		return licenseNumber;
+	}
+	public void setLicenseNumber(String licenseNumber) {
+		this.licenseNumber = licenseNumber;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
 	}
 	public void setId(Long id) {
 		this.id = id;
