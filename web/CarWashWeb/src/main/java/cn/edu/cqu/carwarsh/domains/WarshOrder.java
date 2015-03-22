@@ -81,13 +81,13 @@ public class WarshOrder {
 	 * 关联洗车站点 
 	 */
 	@ManyToOne
-	@Column(nullable=false,unique=true)
+	//@Column(nullable=false,unique=true)
 	private WarshStation warshStation;
 	/**
 	 * 关联洗车工 
 	 */
 	@ManyToOne
-	@Column(nullable=true,unique=true)
+	//@Column(nullable=true,unique=true)
 	private Worker worker;
 	public Long getId() {
 		return id;

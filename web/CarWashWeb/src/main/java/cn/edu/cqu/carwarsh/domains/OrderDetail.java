@@ -41,13 +41,13 @@ public class OrderDetail {
 	 * 关联洗车工
 	 */
 	@ManyToOne
-	@Column(nullable=false,unique=true)
+	//@Column(nullable=false,unique=true)
 	private Worker worker;
 	/**
 	 * 关联订单
 	 */
 	@ManyToOne
-	@Column(nullable=false,unique=true)
+	//@Column(nullable=false,unique=true)
 	private WarshOrder warshOrder;
 	public Long getId() {
 		return id;
