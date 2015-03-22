@@ -235,11 +235,11 @@ public class CustomerController {
 					result.setMsg("密码修改成功");
 					result.setState(true);
 				}else{
-					result.setMsg("原密码错误");
+					result.setMsg("原密码错误,密码修改失败");
 					result.setState(false);
 				}
 			}else{
-				result.setMsg("手机号错误");
+				result.setMsg("手机号错误,密码修改失败");
 				result.setState(false);
 			}
 		} catch (Exception e) {
