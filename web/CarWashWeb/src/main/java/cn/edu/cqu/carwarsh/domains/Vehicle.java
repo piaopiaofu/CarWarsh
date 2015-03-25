@@ -83,6 +83,8 @@ public class Vehicle {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
+				+ ((customer == null) ? 0 : customer.hashCode());
+		result = prime * result
 				+ ((licenseNumber == null) ? 0 : licenseNumber.hashCode());
 		return result;
 	}
@@ -95,6 +97,11 @@ public class Vehicle {
 		if (getClass() != obj.getClass())
 			return false;
 		Vehicle other = (Vehicle) obj;
+		if (customer == null) {
+			if (other.customer != null)
+				return false;
+		} else if (!customer.equals(other.customer))
+			return false;
 		if (licenseNumber == null) {
 			if (other.licenseNumber != null)
 				return false;
@@ -102,7 +109,5 @@ public class Vehicle {
 			return false;
 		return true;
 	}
-	
-	
 	
 }
